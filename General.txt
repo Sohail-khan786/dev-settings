@@ -1,0 +1,17 @@
+1. How to transfer vsCode settings across multiple browsers
+- https://www.youtube.com/watch?v=TR2va67cVkQ
+
+2. Setup SSH keys and add to github
+- https://www.youtube.com/watch?v=_RsP81Et12s
+
+3. install homebrew package manager
+- https://www.youtube.com/watch?v=SOjSNB7F2m4
+
+4. install iterm 2
+- https://www.youtube.com/watch?v=vl4B4JlpXdc
+
+5. Setup zsh and powerlevel10k for beautifying the terminal 
+- https://www.youtube.com/watch?v=D2PSsnqgBiw
+
+6. Extra customization good to have :
+- https://www.youtube.com/watch?v=Ym2pxzWpTNw

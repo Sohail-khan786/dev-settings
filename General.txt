@@ -21,3 +21,6 @@
 
 8. Notion for productivity 
 - https://www.youtube.com/watch?v=vtyS2Jcv4Dk
+
+9. Instal NVM as you node version manager 
+- https://www.youtube.com/watch?v=AEuI0PBvgfM

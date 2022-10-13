@@ -26,4 +26,4 @@
 - https://www.youtube.com/watch?v=AEuI0PBvgfM
 
 10. Must have softwares 
-- vsCode , intelliJ , postman , sublime text , clipy , notion , chrome , wps office , ngRok , cloudwarp by cloudflare , yarn
+- vsCode , intelliJ , postman , sublime text , clipy , notion , chrome , wps office , ngRok , cloudwarp by cloudflare , yarn, xcode , react , spring

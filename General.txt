@@ -32,6 +32,7 @@ wps office , ngRok , cloudwarp by cloudflare , yarn, xcode , react , spring , mo
 
 11. JENV for managing java versions on mac 
 - https://www.youtube.com/watch?v=9FVZyeFDXo0
+- https://www.youtube.com/watch?v=Nd8zDWMNnig&t=195s
 
 12. IntelliJ customization 
 - https://www.youtube.com/watch?v=2jVTZEr9toQ

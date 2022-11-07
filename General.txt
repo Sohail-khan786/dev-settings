@@ -38,3 +38,4 @@ wps office , ngRok , cloudwarp by cloudflare , yarn, xcode , react , spring , mo
 - https://www.youtube.com/watch?v=2jVTZEr9toQ
 - https://www.youtube.com/watch?v=1etC1g0HNBg
 - https://www.ponicode.com/blog/10-best-intellij-plugins-for-developers
+- https://blog.jetbrains.com/idea/2021/05/top-10-plugins-for-intellij-idea/

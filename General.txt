@@ -17,7 +17,7 @@
 - https://www.youtube.com/watch?v=Ym2pxzWpTNw
 
 7. Slack tips and tricks :
-- https://youtu.be/gvJAcElFMUU
+- https://youtu.be/gvJAcElFMUU ( also add extension for JIRA , bitBucket , figma and google calender )
 
 8. Notion for productivity 
 - https://www.youtube.com/watch?v=vtyS2Jcv4Dk

@@ -1,0 +1,12 @@
+Web Performance Optimization techniques : 
+    - take care of FCP , LCP and CLS web vitals , as they are very important for google Ranking 
+    - coverage tab in chrome : https://developer.chrome.com/docs/devtools/coverage/
+    - squoosh.com for reducing image sizes
+    - preload and pre-connect images
+    - async and defer unused javascript
+    - webpack graph reading and optimization
+    - width , quality and dpr paramter for CDN images to download them in minified sizes 
+    - cost of import : dynamic import of high cost helper functions or components which are conditionally used , they can be made as dynamic import 
+    - try to read cookie data on SSR, and according to that , you can load the control or Variant component according to that 
+    - try to call dynamic data / api-call on SSR for better SEO results
+    - animations and popups should be avoided in first fold

@@ -1,0 +1,38 @@
+line login App requirement :
+	- boolean , for user is has already linked line account with us
+		- me-api -> userProfiles -> addressType : LINE
+
+		- multiple users can link same line account 
+
+
+	- login -> no sdk -> line-login-url
+		-> code and redirect_uri curl to cars24 backend for saving users line information [ response is same as me-api for user  ]
+		-> curl 'https://user-auth-service-th.qac24svc.dev/user/profile/LINE?user-type=buyer&lang=en' \
+  -X 'PUT' \
+  -H 'authority: user-auth-service-th.qac24svc.dev' \
+  -H 'accept: application/json, text/plain, */*' \
+  -H 'accept-language: en,hi;q=0.9,en-GB;q=0.8,en-US;q=0.7,en-IN;q=0.6,fr;q=0.5' \
+  -H 'authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJjb3VudHJ5IjoiVEgiLCJzdWIiOiIxMjM0NTY3MTg4IiwibW9iaWxlUGhvbmUiOiIxMjM0NTY3MTg4IiwibmFtZSI6InNvaGFpbDE4OCIsImlzcyI6Imh0dHBzOi8vdXNlci1hdXRoLXNlcnZpY2UtdGgucWFjMjRzdmMuZGV2L29hdXRoL2RlZmF1bHQiLCJleHAiOjE2OTA2OTg2OTMsImlhdCI6MTY4ODEwNjY5M30.Tgxh7VqE43ocyv0mUBLD60vxML6TWONLevjsVtQvI7-LALnGdn7SmvkfRexAslzZsIcCtTpLBWQK7l7o3Yi9JQD0KraFAANd5I_2nZ4ajHQhvETayVFnIUTv417o9-huM4aRO-Yhb7QHm5QRW4ISW8dKGESxf7i2FBVMOy8zFNs' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'cookie: _fbp=fb.1.1679662535260.1985892962; _hjSessionUser_3020981=eyJpZCI6ImFkODVjOWU1LWIxNTktNTZmYy04MzlkLWVlZjU3NDhiNTE4NSIsImNyZWF0ZWQiOjE2ODQ0OTQ5MDk4NjAsImV4aXN0aW5nIjp0cnVlfQ==; _gaexp=GAX1.2.XEZv-fR-TEiaCA7Ttw4HLQ.19578.2; _gcl_au=1.1.144715233.1687518703; _hjSessionUser_3020981=null; _gid=GA1.2.626425312.1688105899; _hjSession_3020981=eyJpZCI6ImRmZDc3MDBlLTMyMTAtNDM0Yi1hYzdlLWIzNWYwNmMzODE5YiIsImNyZWF0ZWQiOjE2ODgxMDU4OTkyNTMsImluU2FtcGxlIjp0cnVlfQ==; _hjAbsoluteSessionInProgress=0; spses.f84b=*; _fbp=null; _gaexp=null; _gcl_au=null; _ga=null; _gid=null; _dc_gtm_UA-65843992-28=null; _hjIncludedInSessionSample_3020981=null; _hjSession_3020981=null; _hjAbsoluteSessionInProgress=null; spses.f84b=null; spid.f84b=null; _ga_LJXQMX0FH8=null; _hjIncludedInSessionSample_3020981=1; spid.f84b=2936407e-eaae-40d7-829f-2cdccdc6d81e.1679662539.165.1688106693.1687947397.993d010e-96ba-4d50-ab7d-ff33af708d19; _ga_LJXQMX0FH8=GS1.1.1688105899.422.1.1688106693.0.0.0; _ga=GA1.2.1526580396.1679662535; _dc_gtm_UA-65843992-28=1; token=eyJhbGciOiJSUzI1NiJ9.eyJjb3VudHJ5IjoiVEgiLCJzdWIiOiIxMjM0NTY3MTg4IiwibW9iaWxlUGhvbmUiOiIxMjM0NTY3MTg4IiwibmFtZSI6InNvaGFpbDE4OCIsImlzcyI6Imh0dHBzOi8vdXNlci1hdXRoLXNlcnZpY2UtdGgucWFjMjRzdmMuZGV2L29hdXRoL2RlZmF1bHQiLCJleHAiOjE2OTA2OTg2OTMsImlhdCI6MTY4ODEwNjY5M30.Tgxh7VqE43ocyv0mUBLD60vxML6TWONLevjsVtQvI7-LALnGdn7SmvkfRexAslzZsIcCtTpLBWQK7l7o3Yi9JQD0KraFAANd5I_2nZ4ajHQhvETayVFnIUTv417o9-huM4aRO-Yhb7QHm5QRW4ISW8dKGESxf7i2FBVMOy8zFNs; refresh_token=eyJhbGciOiJSUzI1NiJ9.eyJjb3VudHJ5IjoiVEgiLCJzdWIiOiIxMjM0NTY3MTg4IiwibW9iaWxlUGhvbmUiOiIxMjM0NTY3MTg4IiwibmFtZSI6InNvaGFpbDE4OCIsImlzcyI6Imh0dHBzOi8vdXNlci1hdXRoLXNlcnZpY2UtdGgucWFjMjRzdmMuZGV2L29hdXRoL2RlZmF1bHQiLCJleHAiOjE2OTA2OTg2OTMsImlhdCI6MTY4ODEwNjY5M30.Tgxh7VqE43ocyv0mUBLD60vxML6TWONLevjsVtQvI7-LALnGdn7SmvkfRexAslzZsIcCtTpLBWQK7l7o3Yi9JQD0KraFAANd5I_2nZ4ajHQhvETayVFnIUTv417o9-huM4aRO-Yhb7QHm5QRW4ISW8dKGESxf7i2FBVMOy8zFNs' \
+  -H 'origin: https://consumer-web-th.qac24svc.dev' \
+  -H 'pragma: no-cache' \
+  -H 'referer: https://consumer-web-th.qac24svc.dev/' \
+  -H 'sec-ch-ua: "Not.A/Brand";v="8", "Chromium";v="114", "Google Chrome";v="114"' \
+  -H 'sec-ch-ua-mobile: ?1' \
+  -H 'sec-ch-ua-platform: "Android"' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: same-site' \
+  -H 'user-agent: Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36' \
+  -H 'x_country: TH' \
+  -H 'x_language: EN' \
+  -H 'x_platform: mSite' \
+  -H 'x_vehicle_type: CAR' \
+  --data-raw '{"lineCode":"oF0GbouB8E40rBe62GSl","redirectUri":"https://consumer-web-th.qac24svc.dev/en/line"}' \
+  --compressed
+
+
+
+  	-> sample url after successfull login : https://consumer-web-th.qac24svc.dev/en/line/?code=oF0GbouB8E40rBe62GSl&state=p9oxavkhgnm

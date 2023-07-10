@@ -1,0 +1,82 @@
+carLead status changed after verification :
+
+
+`submit sell car lead api` :
+
+curl 'https://c2b-service-th.qac24svc.dev/v1/lead' \
+  -H 'authority: c2b-service-th.qac24svc.dev' \
+  -H 'accept: application/json, text/plain, */*' \
+  -H 'accept-language: en,hi;q=0.9,en-GB;q=0.8,en-US;q=0.7,en-IN;q=0.6,fr;q=0.5' \
+  -H 'content-type: application/json' \
+  -H 'origin: http://localhost:3000' \
+  -H 'referer: http://localhost:3000/' \
+  -H 'sec-ch-ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"' \
+  -H 'sec-ch-ua-mobile: ?1' \
+  -H 'sec-ch-ua-platform: "Android"' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: cross-site' \
+  -H 'user-agent: Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36' \
+  -H 'x_country: TH' \
+  -H 'x_language: EN' \
+  -H 'x_platform: mSite' \
+  -H 'x_vehicle_type: CAR' \
+  --data-raw '{"make":"Honda","makeId":"HONDA","model":"Accord","modelId":"ACCORD","year":2022,"transmissionType":"Automatic","variant":"1.5 Turbo EL (MY21)","color":"Grey","odoMeterReading":{"displayName":"50,000 Kms - 100,000 Kms","minVal":50000,"maxVal":100000},"phoneNumber":"1234567111","selectedInspectionCenter":{}}' \
+  --compressed
+
+
+
+
+
+`verify car lead api call` :
+
+
+curl 'https://c2b-service-th.qac24svc.dev/v1/lead/verify' \
+  -H 'authority: c2b-service-th.qac24svc.dev' \
+  -H 'accept: application/json, text/plain, */*' \
+  -H 'accept-language: en,hi;q=0.9,en-GB;q=0.8,en-US;q=0.7,en-IN;q=0.6,fr;q=0.5' \
+  -H 'authorization: Bearer eyJhbGciOiJSUzI1NiJ9.eyJjb3VudHJ5IjoiVEgiLCJzdWIiOiIxMjM0NTY3MTExIiwibW9iaWxlUGhvbmUiOiIxMjM0NTY3MTExIiwibmFtZSI6InBwcCIsImlzcyI6Imh0dHBzOi8vdXNlci1hdXRoLXNlcnZpY2UtdGgucWFjMjRzdmMuZGV2L29hdXRoL2RlZmF1bHQiLCJleHAiOjE2ODQ2MjU4MzYsImlhdCI6MTY4MjAzMzgzNn0.E3W20FE85ZNFlN8cgT-A022KeEauQm-TRfcfKkrbTlbM6OPjV8Y3ASatmsxDFo2TO9dr-IVdIEAwqRrcEgwL7GbvlL6q_XyoK9RRvrhs1i4Sb41SIGQ4gOU-M1AaJn2rQLP3g5TebMsHXnv8Z2xD5L5Wwfv1B5fKAXVgvxo7oPg' \
+  -H 'content-type: application/json' \
+  -H 'origin: http://localhost:3000' \
+  -H 'referer: http://localhost:3000/' \
+  -H 'sec-ch-ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"' \
+  -H 'sec-ch-ua-mobile: ?1' \
+  -H 'sec-ch-ua-platform: "Android"' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: cross-site' \
+  -H 'user-agent: Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36' \
+  -H 'x_country: TH' \
+  -H 'x_language: EN' \
+  -H 'x_platform: mSite' \
+  -H 'x_vehicle_type: CAR' \
+  --data-raw '{"make":"Honda","makeId":"HONDA","model":"Accord","modelId":"ACCORD","year":2022,"transmissionType":"Automatic","variant":"1.5 Turbo EL (MY21)","color":"Grey","odoMeterReading":{"displayName":"50,000 Kms - 100,000 Kms","minVal":50000,"maxVal":100000},"phoneNumber":"1234567111","selectedInspectionCenter":{}}' \
+  --compressed
+
+
+
+
+
+
+  `the below sell car lead api call gave verified as true , even though we didn't send any token` :
+
+  curl 'https://c2b-service-th.qac24svc.dev/v1/lead' \
+  -H 'authority: c2b-service-th.qac24svc.dev' \
+  -H 'accept: application/json, text/plain, */*' \
+  -H 'accept-language: en,hi;q=0.9,en-GB;q=0.8,en-US;q=0.7,en-IN;q=0.6,fr;q=0.5' \
+  -H 'content-type: application/json' \
+  -H 'origin: http://localhost:3000' \
+  -H 'referer: http://localhost:3000/' \
+  -H 'sec-ch-ua: "Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"' \
+  -H 'sec-ch-ua-mobile: ?1' \
+  -H 'sec-ch-ua-platform: "Android"' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: cross-site' \
+  -H 'user-agent: Mozilla/5.0 (Linux; Android 8.0.0; SM-G955U Build/R16NW) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Mobile Safari/537.36' \
+  -H 'x_country: TH' \
+  -H 'x_language: EN' \
+  -H 'x_platform: mSite' \
+  -H 'x_vehicle_type: CAR' \
+  --data-raw '{"make":"Mitsubishi","makeId":"MITSUBISHI","model":"Triton","modelId":"TRITON","year":2021,"transmissionType":"Manual","category":"Single Cab","variant":"2.4 GL 4WD (MY19)","color":"Black","odoMeterReading":{"displayName":"100,000 Kms - 120,000 Kms","minVal":100000,"maxVal":120000},"phoneNumber":"1234567111","selectedInspectionCenter":{}}' \
+  --compressed

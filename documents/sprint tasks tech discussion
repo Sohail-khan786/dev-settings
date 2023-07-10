@@ -1,0 +1,29 @@
+Guided Search:
+	Suggested Implementation :
+		- backend already gets the filters when we hit the listing api , so they can send the next set of guided filters ( or some way to directly use inline filters response ) and currently applied filters [ maintaining our filter object structure consistency ] in the same api in same key
+		- so when user selects one of the guided filters and we hit the listing api , the whole process can repeat [ key point to extract filters from listing api response only , coz there is some logic to merge make model filters ]
+
+	Questions :
+		- till which level should the guided filters work , like for example , if user has selected two or three guided filters , will a 4th set of guided filter appear ? coz anyways it would not be visible on screen 
+
+
+Post BI Education screen:
+	Suggested Implementation :
+		- take the experiment Key from backend , rest all will be done by fronetend only
+		- for the `view similar cars` cta in the education screen , we have the filters stored in redux
+
+
+Similar cars on listing ( https://cars24.atlassian.net/browse/CTWM-6435 )
+	Suggested Implementation :
+		- i think , this will be purely backend task 
+
+
+
+
+SLot availability : 
+	Case A : no booking 
+		- current time : 2023-07-08T03:01:05.880188+07:00[Asia/Bangkok]
+		- slotBooked : empty array 
+		- location : 13.0350,77.6235
+		- originLatLog -> car location : 12.9121,77.6379
+		- allEligibleSlots : slotMap { key : dateTime , value : slotobject }

@@ -1,0 +1,169 @@
+import React, { useEffect, useState } from "react";
+import styles from "./styles.css";
+import PropTypes from "prop-types";
+import TestimonialCard from "../testimonial-card";
+import { useTranslation, Trans } from "react-i18next";
+import { TESTIMONIAL_PAGE_COUNT } from "../../../constants/api-constants";
+import Header from "../page-header";
+import { useHistory } from "react-router-dom";
+import Skeleton from "./skeleton";
+import { Helmet } from "react-helmet";
+import Footer from "../../desktop/footer";
+import FooterM from "../../mobile/footer";
+import { MOBILE_EVENTS, trackMobileCustomEvents } from "../../../tracking/track-mobile-events";
+import { appUrl } from "../../../constants/url-constants";
+import CarDetailsVideoPlayer from "../../mobile/car-details-video-player";
+
+const Testimonial = ({
+    getTestimonialsConnect,
+    testimonialsList,
+    isLoading,
+    currentPageSize
+}) => {
+
+    const { t } = useTranslation("home");
+    const history = useHistory();
+    const {
+        title, moreReviews, meta, review
+    } = t("home:testimonial");
+    const [page, setPage] = useState(0);
+
+    const fetchTestimonials = (pageNumber = 0) => {
+        const params = {
+            pageType: "DEFAULT_PAGE",
+            page: pageNumber,
+            pageSize: TESTIMONIAL_PAGE_COUNT
+        };
+
+        getTestimonialsConnect(params);
+    };
+
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    };
+
+    useEffect(() => {
+        scrollToTop();
+        fetchTestimonials(page);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    const moreReviewClick = () => {
+        const updatedPageNumber = page + 1;
+        setPage(updatedPageNumber);
+        trackMobileCustomEvents(MOBILE_EVENTS.testimonialPageSeeMore);
+        fetchTestimonials(updatedPageNumber);
+    };
+
+    const onClose = () => {
+        history.goBack();
+    };
+
+    // expected from backend
+    const [videoFilePath, setVideoFilePath] = useState(null);
+
+    const handleVideoUpload = (event) => {
+        // eslint-disable-next-line no-undef
+        setVideoFilePath(URL.createObjectURL(event.target.files[0]));
+    };
+
+    const dataTimeStamps = [
+        {
+            key: "overview",
+            time: "00:00"
+        },
+        {
+            key: "carStory",
+            time: "00:00"
+        },
+        {
+            key: "exterior",
+            time: "00:00"
+        },
+        {
+            key: "defects",
+            time: "00:00"
+        },
+        {
+            key: "tyres",
+            time: "00:00"
+        },
+        {
+            key: "engine",
+            time: "00:00"
+        },
+        {
+            key: "interior",
+            time: "00:00"
+        }
+    ];
+
+    return (
+        <React.Fragment>
+            {
+                !videoFilePath ?
+                    <input type="file" onChange={handleVideoUpload} />
+                    : (
+                        <div styleName={"styles.playerContainer"}>
+                            <CarDetailsVideoPlayer
+                                videoUrl={videoFilePath}
+                                dataTimeStamps={dataTimeStamps}
+                                onBackClick={() => {setVideoFilePath(null);}}
+                                onWishlistClick={() => { console.log("🚀 ~ file: component.js:83 ~ onWishlistClick"); }}
+                                onShareIconClick={() => { console.log("🚀 ~ file: component.js:83 ~ onShareIconClick"); }}
+                                onHelpIconClick={() => { console.log("🚀 ~ file: component.js:83 ~ onHelpIconClick"); }}
+                                openKnowledgeArticlePopup={(key) => {console.log("🚀 ~ file: openKnowledgeArticlePopup --> ", key);}}
+                                onViewCarDetailClick={() => {console.log("🚀 ~ file: component.js:87 ~ onViewCarDetailClick");}}
+                                onBookTestDriveClick={() => {console.log("🚀 ~ file: component.js:87 ~ onBookTestDriveClick");}}
+                            />
+                            <CarDetailsVideoPlayer
+                                videoUrl={videoFilePath}
+                                dataTimeStamps={dataTimeStamps}
+                                onBackClick={() => {setVideoFilePath(null);}}
+                                onWishlistClick={() => { console.log("🚀 ~ file: component.js:83 ~ onWishlistClick"); }}
+                                onShareIconClick={() => { console.log("🚀 ~ file: component.js:83 ~ onShareIconClick"); }}
+                                onHelpIconClick={() => { console.log("🚀 ~ file: component.js:83 ~ onHelpIconClick"); }}
+                                openKnowledgeArticlePopup={(key) => {console.log("🚀 ~ file: openKnowledgeArticlePopup --> ", key);}}
+                                onViewCarDetailClick={() => {console.log("🚀 ~ file: component.js:87 ~ onViewCarDetailClick");}}
+                                onBookTestDriveClick={() => {console.log("🚀 ~ file: component.js:87 ~ onBookTestDriveClick");}}
+                            />
+                        </div>
+                    )
+            }
+
+            {/* <CarDetailsVideoPlayer /> */}
+            {/* <Helmet>
+                <link href={`${appUrl()}${history.location.pathname.replace(/\/$/, "")}/`} rel="canonical" />
+                <title>{meta.title}</title>
+                <meta
+                    name="description"
+                    content={meta.description}
+                />
+
+            </Helmet>
+            <div>
+                <h3>Car-details video POC</h3>
+                <div>
+                    <button>choose file</button>
+                </div>
+                <div styleName={"styles.playerContainer"}>
+
+                </div>
+
+            </div> */}
+        </React.Fragment>
+    );
+};
+
+Testimonial.propTypes = {
+    getTestimonialsConnect: PropTypes.func,
+    testimonialsList: PropTypes.array,
+    isLoading: PropTypes.bool,
+    currentPageSize: PropTypes.number
+
+};
+
+export default Testimonial;

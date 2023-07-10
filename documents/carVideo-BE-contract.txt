@@ -1,0 +1,104 @@
+{
+	tumbNailImg : "tumbNailImg_url",
+
+	videoUrl : "videoUrl",
+
+	dataTimeStamps : [
+        {
+            key: "overview",
+            time: "00:00",
+            displayText: "Overview",
+            knowledgeArticles: [
+                {
+                    key: "understandPrice",
+                    displayText: "Understand Price"
+                },
+                {
+                    key: "financing",
+                    displayText: "Know more about Financing"
+                }
+            ],
+            carHightlighLabels: [
+                {
+                    key: "odometerReading",
+                    displayText: "13,989 KM"
+                },
+                {
+                    key: "ownerInfo",
+                    displayText: "1st Owner"
+                },
+                {
+                    key: "transmissionType",
+                    displayText: "Petrol"
+                },
+                {
+                    key: "rating",
+                    displayText: "UP-16"
+                }
+
+            ]
+        },
+        {
+            key: "carStory",
+            time: "00:08",
+            displayText: "Car Story",
+            knowledgeArticles: [
+                {
+                    key: "thingToConsider",
+                    displayText: "Top 5 things"
+                }
+            ],
+            carHightlighLabels: [
+                {
+                    key: "noOfYearsUsed",
+                    displayText: "Sold after 1 Year"
+                },
+                {
+                    key: "usageInfo",
+                    displayText: "driven in city"
+                }
+
+            ]
+        },
+        {
+            key: "exterior",
+            time: "01:25",
+            displayText: "Exterior",
+            knowledgeArticles: [
+                {
+                    key: "bodyTypes",
+                    displayText: "Different Body Types"
+                }
+            ],
+            carHightlighLabels: []
+        },
+        {
+            key: "defects",
+            time: "01:47",
+            displayText: "Defects",
+            knowledgeArticles: [],
+            carHightlighLabels: []
+        },
+        {
+            key: "tyres",
+            time: "02:13",
+            displayText: "Tyres",
+            knowledgeArticles: [],
+            carHightlighLabels: []
+        },
+        {
+            key: "engine",
+            time: "02:28",
+            displayText: "Engine",
+            knowledgeArticles: [],
+            carHightlighLabels: []
+        },
+        {
+            key: "interior",
+            time: "02:48",
+            displayText: "Interior",
+            knowledgeArticles: [],
+            carHightlighLabels: []
+        }
+    ]
+}

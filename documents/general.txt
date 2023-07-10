@@ -1,0 +1,140 @@
+branches and their work :
+    - sprint-38-CTWM-5996-homepage-cls : homePage CLS fix by replacing the lazyLoad component
+    - sprint-38-CTWM-5996-placeholders-poc : adding height width , place holders and blur effect [ BEST OPTION ACCORDING TO ME ]
+    - sprint-38-CTWM-5996-placeholders-lozad-poc : same as above branch , but made with lozad library  ( cannont pass elements as placeholders for images and threshold is not customizable , also loads extra content due to double view port rule and component/div lazy loading is not working properly  )
+            - https://docs.google.com/spreadsheets/d/1zlubpv3GkK8o-2A4ep29pRMd4MF81sMIogRQjiA2X0c/edit?usp=sharing
+            - blur effect implemented to images , if passed true from prop
+            - customized threshold added for images 
+            - fallback component for images
+            - custom and default placeholder configured , but need to see , why the margin and padding of them are off [ span img , should also have a direct img styling ]
+            - placeholdersrc for adding low quality placeholder images
+            - placeholder components passing for divs and components  
+    - sprint-39-CTWM-6085-sell-lead : payload updates for the seller lead api
+    - sprint-38-CTWM-6086-homepage-cls : sprint task to fix cls of homepage by adding height width and all to components
+    - fix/listing-cls : sprint task to fix cls of listing page by adding height width and all to components
+    - sprint-39-CTWM-6062-my-bookings-cta-update : my-bookings-cta logic update  ( also car-detials conditions is fixed , which can be reverted anytime )
+    - fix/detail-report-page-land : detailed report page of Msite CDP , breaks upon refreshing
+    - fix/listing-animation : animation for listing page ( this might get rejected , thats why created a seaparate PR for this )
+    - fix/car-loader-import ( should go in sprint-40 ) : dynamic import of car-loader component in msite code-base
+    - sprint-40-CTWM-5989-user-address-via-map : giving user functionality to add more details of address drag the map a bit
+        - setup AB experiment with Sohan's help ( USER_HOME_ADDRESS : experiment key ) -> sohan will revert when he deploys it , as we will have to test it again
+        - Add GA events when products gives it -> apoorv will add the GA events
+        - test the entire flow 
+    - sprint-40-CTWM-6207-x-platform-header : X_PLATFORM header added to all client services and SSR services as well , I'm getting CORS error for now, so will get this fixed from BE team laterd
+    - sprint-41-CTWM-6100-desktop-summary-page : desktop summary page changes 
+    - sprint-41-CTWM-6076-cancel-booking-text-changes : text fixes for cancel-booking popup is token payment is not done
+    - sprint-41-validator-test-cases : test cases for validator functions
+    - sprint-41-test-cases-added : testing main branch
+    - fix/wishlist-cars-fetching : fix for wishlisting api on listing page and cdp-page
+    - sprint-42-CTWM-6476-line-login-events : line login events
+    - sprint-42-CTWM-6409-listing-bottom-navigation-scroll-fix : bottom navigation should appear as soon as user starts scrolling up
+    - sprint-42-infinity-scroll : listing page cars should be appended
+    
+
+IMPORTANT release note for sprint-38:
+    - check payments flow after release as well
+
+
+Docker QA build Comand : docker build -t consumer-web-th -f Dockerfile-gcp .
+
+
+Learn :
+    - react render proper pattern : read from patterns.dev
+    - PWA ( progressive web app ) with service worker
+    - read up on frontend system design 
+    - https://www.patterns.dev/posts/render-props-pattern
+    - read up on webpack in more depth 
+    - read up on gatsby in more depth
+    - do a POC on google-pub-sub event driven micro-services
+    - complex design pattern spring boot
+    - how our current project differentiates between mobile device and desktop device
+    - webpack and micro-frontend course : https://www.udemy.com/course/webpack-5-ninja-build-micro-frontend-and-web-apps/
+    - how auto-suggestion works in india : https://cars24.slack.com/archives/G5GD6T5PZ/p1684304316882299
+    
+
+Web Performance Optimization techniques : 
+    - take care of FCP , LCP and CLS web vitals , as they are very important for google Ranking 
+    - coverage tab in chrome : https://developer.chrome.com/docs/devtools/coverage/
+    - squoosh.com for reducing image sizes
+    - preload and pre-connect images
+    - async and defer unused javascript
+    - webpack graph reading and optimizationx
+    - width , quality and dpr paramter for CDN images to download them in minified sizes 
+    - cost of import : dynamic import of high cost helper functions or components which are conditionally used , they can be made as dynamic import 
+    - try to read cookie data on SSR, and according to that , you can load the control or Variant component according to that 
+    - try to call dynamic data / api-call on SSR for better SEO results
+    - animations and popups should be avoided in first fold
+    - bundleAnalyser : uncomment bundleAnalyser 2 lines and yarn build the project
+
+
+
+
+-------- PERSONS TO CONTACT ---------
+
+
+Sohail :
+    - use V3 vehicle api
+    - go through Maggi's code to fully understand the CI logic and understand java coding
+    - ask ruchi , on how to use new figma software
+    - when I'm clicking on comfirm  button while cancelling the booking , the loader comes , but the button doesn't get greyed out types like it does on master branch , so does anyone know in which branch this was changed so we can fix it [ attached video for reference ] [ https://cars24.slack.com/archives/C038YBHHN48/p1687945704486579 ]
+    - tech task : code for auto-setup of ab-experiment in ssr 
+    - tech-task : check if all ssr code are calling SSR urls 
+    - tech-task : handle routing by properly replacing history.push and history replace wherever needed
+    - tech task : C2B Good to have tech task: 
+            - learn how to clear previous redux persist data  from local storage on version upgrade
+            - figma : https://www.figma.com/file/QX3M2zCrNZiKUhxFpcRBn8/CARS24-TH-Sprint-Plan-35---40?node-id=942-12721&t=CA70lvRKLcD4m2Qt-0
+            - fix qualified popup of seller flow in MSITE for clearing the form on reaching the qualification-status-popup
+            - refactor dropdown code to reuse components if possible
+            - refactor desktop code to easy mobile implementation
+            - refactor mobile c2b folder structure same as desktop if possible 
+            - cleanup and delete components which are not being used in mobile and desktop for c2b
+    - play with histoy push and history replace  , goBack(n), to properly add routing in your website
+
+
+Appoorv:
+    - thai and english designs properly for each map location flow ? -> given
+    - what if user first inputs a servicable location and that drags it to a non-servicable location, what is the expected behaviour here ? -> verified with apoorv -> he will also add this to figma for QA testing purposes
+    - GA events are missing i guess  -> to  be given 
+    - I don't see any button to close the additional-home-info popup screen -> system back -> search address popup should open
+    - what does the arrow button do ? does it open google maps in new tab for something ? [ highlighted the button in the screenshot below ] -> recenter to existing position from where user started dragging the pin
+    - which popup opens on Edit button click -> search address popup should open
+    - the google API should not be called upon save and continue click -> talked to sambhav -> its wrong product flow -> verified with appoorv
+    - if user drops from additional-home-info-popup and comes back for continuing the booking -> it will be prefilled with the address that searched on google maps
+   
+
+ruchi :
+    - desktop checkbox only appearing after clicking them
+
+
+Sambhav :  
+    - and the extra listing starts after reserved cars -> raise it to product
+
+Maggi:
+    - bookingType has different meaning in frontend , i guess in backend also , to be it in sync , it should be deliveryMode
+    - string for deliveryMode is different in frontend eg : hub is PICK_UP
+    - sort the 401 error that you are getting while creation of new endpoint
+
+Sohan :
+    - ask sohan about the task that are groomed and can be done by you , also if some task is groomed but moved to next sprint that can be done by you 
+
+
+Sahil :
+    - ask sahil about the task that are groomed and can be done by you , also if some task is groomed but moved to next sprint that can be done by you 
+
+
+    
+
+-------------- UAT POINTS ------------------
+
+
+
+-------------- POC ------------------
+
+React SSR async reducer Loading :
+    - create a react app with SSR using Express 
+        - https://dev.to/juhanakristian/basics-of-react-server-side-rendering-with-expressjs-phd
+        - https://javascript.plainenglish.io/back-to-basics-server-side-rendering-a-react-app-using-express-js-6fab99db5770
+    - setup redux in that app
+    - load the reducers only as per specific requirement of the page 
+    - create a dummy application which has 2 pages , and 3 reducers ( one shared reducer and one page specific reducer for both pages )
+

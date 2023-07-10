@@ -1,0 +1,82 @@
+learn :
+	- java AOP
+	- do a POC on google-pub-sub event driven micro-services
+    - complex design pattern spring boot
+    - how auto-suggestion works in india : https://cars24.slack.com/archives/G5GD6T5PZ/p1684304316882299
+    - do a POC on auto-suggestions and POC of fuzzy search 
+    - learn writing rules in java spring-boot
+    - read up on Go-lang and take priyanka's help
+
+Tickets to work on : 
+	- https://cars24.atlassian.net/browse/CTWM-6023 : central inventory model ticket with logic and PRD 
+	- do a POC on using google apis given by SOHAN 
+	- sprint-40-distance-matrix-api-poc : distance matrix api POC for central repository implementation
+
+Slot entry task by Maggi :
+	- create a api which accepts apptId , orderId and slotObject request
+	- dummy method to to check the available slots [ this available slots api will be made by maggi ] -> list of dateTime Strings 
+	- validate that user selected object is in the available slot array or not 
+	- if its present make an entry in `slot-planner-th`.slot_booking table
+	- if not present , than throw error `slot not available` 
+	- return the DB-object
+
+
+Branch and their work :
+	- b2c-slot-availability-api : slot availability logic updated and improved
+
+
+backend services:
+	- paymentService-th: https://bitbucket.org/cars24/payment-service-th/pull-requests/8
+	- dmsSerivce-th ( Have Access ) : https://bitbucket.org/cars24/dms-service-th/pull-requests/125
+	- message-bird-th: https://bitbucket.org/cars24/message-bird-th/pull-requests/117
+	- crm-service-th: https://bitbucket.org/cars24/crm-service-th/pull-requests/181
+	- b2c-oms-th ( Have Access ) : https://bitbucket.org/cars24/b2c-oms-th/pull-requests/238
+	- listing-service
+	- user-auth-service
+	- b2c-slot-planner : https://bitbucket.org/cars24/b2c-slotplanner-th/src/master/
+
+-------- PERSONS TO CONTACT ---------
+
+Sahil :
+    - ask sahil about the task that are groomed and can be done by you , also if some task is groomed but moved to next sprint that can be done by you 
+
+Maggi :
+	- slot entry task : in progress
+
+
+ 
+Sohan :
+    - ask sohan about the task that are groomed and can be done by you , also if some task is groomed but moved to next sprint that can be done by you 
+
+------------------------------------------ NOTES ------------------------------------------------------------------------------------
+
+- implementation of getAvailableSlotsForAppointmentId
+	- check if its home test Drive 
+		- yes -> check pincode_servicebility from that table 
+		- no -> continue as it is 
+	- get the list of all bookedSlots form B2cSlotBooking table 
+	- convert location string in the comma-separated form `lat,long`
+	- fetch current car location ( getCurrentCarLocation function [ not yet implemented -> return the car location in string form `lat,long` ] )
+	- get allEligibleSlots [ using  slotHelper.getAllSlotWithTimeInterval ]
+		- minimum 4 days slots should be fetched 
+		- skip holiday dates 
+		- currentTime should be within working hours of currentDay 
+		- than all skip slots are checked 
+		- allEligibleSlots are than returned till you get 
+	- questions on implementation of this "removeAndGetBookedSlots" -> you will get a map of booked slots according to zonedDateTime
+	- now getAvailableSlots ->  [ questions on validateSlotBetweenBookedSlot ]
+
+    
+-------------------------------------------------------- UAT POINTS ----------------------------------------------------------------------------------------
+
+
+
+---------------------------------------------------------------- DOUBTS --------------------------------------------------------------------------------------
+
+
+
+
+-------------------------------------------------------------- DEMO NOTES -------------------------------------------------------------------------------------
+
+
+

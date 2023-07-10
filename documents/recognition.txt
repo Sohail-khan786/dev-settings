@@ -1,0 +1,5 @@
+Recently there was a design and a video shared for car-detail-video page ( https://cars24.slack.com/archives/G5GD6T5PZ/p1672898868439049 ) , i really liked the feature , so i worked after office hours and even on weekend to create a POC for it even when that feature was not for our geography ( thailand ) as of now 
+
+video of the POC : https://drive.google.com/file/d/1r6WNXUi7DaDMutF4AyBERrtAulaVTW5t/view?usp=sharing
+
+my slack messge : https://cars24.slack.com/archives/G5GD6T5PZ/p1673850233327379?thread_ts=1672898868.439049&cid=G5GD6T5PZ

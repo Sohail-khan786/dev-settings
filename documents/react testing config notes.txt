@@ -1,0 +1,36 @@
+yarn tests src/client/hooks/__tests__/use-line-login.test.js
+
+yarn tests src/client/utils/helpers/__tests__/checkout-util.test.js
+
+yarn tests src/client/utils/post-booking/__tests__/post-booking.test.js
+
+
+#!/bin/bash
+
+export HOST_ENV=QA
+export GTM_ID=GTM-KJ93XNM
+export GOOGLE_MAPS_API_KEY=AIzaSyAlrHTQZSsQNnsyPcLocLVbSM4M3Q3Svvw
+export LINE_ID_OFFICIAL_ACCOUNT=%40372hxorw
+export OPTIMISE_ID=OPT-KZK5LLL
+export SNOWPLOW_APP_ID=c24-th-web
+export SNOWPLOW_COLLECTOR_ENDPOINT=com-cars24-prod1.mini.snplow.net
+export LINE_CLIENT_ID=1657010251
+export HOME_REDIRECT_URI=https://consumer-web-th.qac24svc.dev
+export LINE_ID_OFFICIAL_ACCOUNT=@655mnyza
+export LINE_CLIENT_SECRET=ef8a5aa13f186884bc619c0106c0bf31
+
+if test "$NODE_ENV" = "production"; then
+  yarn test:coveragereport
+else
+  if test -n "$1"; then
+    jest --findRelatedTests "$1" --verbose --coverage --no-cache
+    open coverage/lcov-report/index.html
+  else
+    jest --coverage --verbose --no-cache
+    open coverage/lcov-report/index.html
+  fi
+fi
+
+
+
+

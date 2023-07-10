@@ -1,0 +1,13 @@
+Key points to use Distance Matrix API for our use case ( https://developers.google.com/maps/documentation/distance-matrix/overview ) :
+	- For given combination of origin and destination, it returns travel distance and duration
+	- You can specify several options, including mode of transportation ( for car/driving -> "mode" parameter is driving)
+	- Distance for a selected travel mode
+	- Estimated travel time in traffic ( because we can't break our commitment to client )
+	- Distance Matrix API uses any number of origins (starting points) and destinations and returns the distance and travel time between each origin and all requested destinations
+	- github repo and usage guide for distance matrix : https://github.com/googlemaps/google-maps-services-java
+	- maven library for distance matrix api in java -> https://mvnrepository.com/artifact/com.google.maps/google-maps-services
+	- using place_id for addresses if preferable
+	- You can specify either departure_time from the origin ( specially important for getting exact duration of travel between two points , because the traffic can fluctuate depending on the departure_time )
+	- optional parameter ( but can be a cost effective parameter  ) -> these parameters can be defined to tell if you want the route to have "tolls" or not
+	- language parameter can be passed as well for proper finding of places as well [ but best way is to pass place_id or co-ordinates ]
+	- The distance fields also contain values which are always expressed in meters

@@ -1,5 +1,6 @@
 1. How to transfer vsCode settings across multiple browsers
 - https://www.youtube.com/watch?v=TR2va67cVkQ
+- and you use your github account on vscode login to do settings sync
 
 2. Setup SSH keys and add to github
 - https://www.youtube.com/watch?v=_RsP81Et12s

@@ -1,0 +1,285 @@
+React Topics to Study:
+    - how to show different services offered by your website in google search result
+    - create resuable components 
+    - animations
+    - how to improve user experience
+    - how to create big flow which should be removed from history once they are completed
+
+
+
+
+
+    --------------------- RELEASED OR MERGED FOR RELEASE TASK BRANCHES -------------------------------
+
+
+    - release/buyer-102-seller-87 : 
+        - this release branch has all migration of mobile GA-events and branch sprint_97_bp_CU-17600-msite-tracking-file-separation is already merged to it
+
+    --------------------- IN-PROGRESS SPRINT TASK BRANCHES -------------------------------
+
+
+
+    - Try to get cars24 all business listed directly on google search -> research on this [ take strip for example ]
+    
+    - sprint_101_bp_CU-17964-bvc-desktop : bank evaluation journey desktop
+
+    - sprint_102_bp_CU-18317-desktop-convenience-fees-popup : 
+
+    - sprint_102_bp_CU-18331-subscription-faq-text-change 
+
+
+
+    - sprint_97_bp_CU-17600-msite-tracking-file-separation : seggregate tracking file
+        - migrate subscription events here as well => DONE
+        - sandbox to categorize events : https://codesandbox.io/p/sandbox/relaxed-frost-8wkdg3?file=%2Fsrc%2Ftodo-app.js%3A3254%2C20
+        - add event migration delimitter on ae.mobile-events file and ae.seller-events file => DONE
+        - find places where "trackMobileCheckoutEvents" was used and add the required event data on those events according to new implementation [ src/client/components/ae.mobile/post-booking-confirmation-v2/utils.js ] => DONE
+        - event that were not found and couldn't be migrated are found down by `trackPlatformCustomEventsAEV2("` => need to do once again
+        - only keep those events in ae.mobile-events.js that are used in desktop => entire file migrated => DONE
+        - recheck usage of "trackMobileCustomEventsAE" and "trackMobileSellerCustomEvents" in and `trackPlatformCustomEventsAEV2("` : => DONE
+            - */ae.desktop
+            - */ae.mobile
+            - */ae.configuration
+            - */shared
+        - delete ae.mobile-events.js file after this , or atleast  , let it have only some common events => entire file migrated => DONE
+        - capture the diff of newly added events [ once you are ready to merge ] and migrate them as well => DONE
+
+
+
+
+ 
+
+
+
+    --------------------- TECH TASK BRANCHES -------------------------------
+    - poc/nx-worspace-setup : in progress
+    - poc/react-window : react window POC
+    - poc/party-town : partyTown async script loading POC
+    - poc/dynamic-reducer-injection : dynamic reducer injection POC 
+        - poc/dynamic-reducer-injection : cut a branch separately from this , so that , this branch can be used by other Geography to directly use it
+        - identify Base Reducer ( TEAM HELP : reducers that are needed almost in every route )
+        - identify Routes Sepcific reducers and create injectible files ( TEAM HELP : route specific reducers)
+        - import injectibe files in pages/index files as well as relevent SSR files ( TEAM HELP )
+        - deploy on STAGE for atleast one sprint before PROD
+        - Excel Sheet for maintainence : https://docs.google.com/spreadsheets/d/1jK7zkR6HalXejgPbtm3Ol_HXY3ZA9E8a5mtWZ4Fq1m4/edit#gid=0
+
+
+LAST RELEASE DATE : 
+
+IMPORTANT release note :
+
+IMPORTANT Post-release notes :
+
+
+
+UAE sprint point allocation sheet :
+    - https://docs.google.com/spreadsheets/d/1dQySsCpHCPUTjBS2NS3EvBXz8esN8k4aRO0q5udc5PI/edit#gid=189351848
+
+
+
+UAE UAT sheet : 
+    - https://docs.google.com/spreadsheets/d/1-yvxRkyvQuh36OuFd4ZKP3pQpyjdxVVj6x-jnUhJ8EM/edit?pli=1#gid=386543954
+
+
+
+Tracking things after release :
+
+
+
+
+Extra Efforts ( for appraisals ):
+    - c2b api improvements results of Msite and Desktop 
+    - b2c my-booking page api improvement results and  my-booking pages pagination of Msite and Desktop 
+    - Continuous efforts to improve web-vials of Msite and Desktop 
+    - Timely review of PRs and early identification of bugs
+    - lowest bug count in the team : https://docs.google.com/spreadsheets/d/1hjPeodjv9LhnRWJ8pIMlyCTX_bTrkrveRgPonSumZu8/edit#gid=2054517210
+    - UAE : base setup [ most error prone part ] for the reducer splitting code 
+    - UAE : resolved long running prod-bug in TDS flow apart from my sprint work [ user landing on slot selection page even after selecting the slot - TDS flow ]
+    - Didn't create a fuss over not  getting the thailand lead position , even though i was the more suitable candidate and trusted the leadership decision and proved myself in the second geography [ team-player ]
+    - UAE : made the imageUrl generation code and coupon component more user-friendly [ card clickability ], across whole website without extra ticket for it , along with sprint work [ initiate and ability to deliver ]
+    - Commitment and loyalty : Commitment ( first appraisal was 1.5 years later , which was never considered ) and loyalty to the company is very high , been working for 2+ years and was never short on my delivery and always made extra efforts to improve the codebase [ even without any recognitition happening in the geography ]
+    - SSR  api calls optimization [ also proper template and KT to team for use ] , to improve our webvitals across msite and website [ extra effort apart from sprint work ] : https://bitbucket.org/cars24/consumer-web-ae/pull-requests/7094
+    ----------------- NEW -----------------
+    - UAE : resolved long running prod-bug in which the listing scroll postion of the user is lost whenever he goes to detail-page of car and comes back [ giving very bad user experience  ]. Resovled this apart from sprint work , identified it myself and fixed it myself, apart from my usual sprint work without creating a ticket and inform QA head of this case to be added to regression suite.
+    - UAE : worked on weekened to fix the INP issue , when the situation demanded it
+    - extra work : do a POC on react-window for UAE repo
+
+
+
+
+    - recommended cars is newly added section , need to add min-height on it 
+
+
+Docker Command :
+    - Docker QA build Comand : docker build -t consumer-web-th -f Dockerfile-gcp .
+
+
+Run test on individual file :
+    - yarn tests src/client/utils/post-booking/__tests__/post-booking.test.js
+
+
+Practices to Adopt :
+    - sentry error logs reading 
+    - daily PR review [ perferably before DSM or end of day types ]
+    - stack PR review method 
+    - deploying UI with testing data [ but don't move tickets to ready for QA ] -> to help check UI in different devices from office 
+    - reading react tech blogs
+    - daily use this resource for historic web-vital data tracking for any url : https://auditzy.com/features/core-web-vital-checker/report
+    - maintaining web-vital lab data screenshot for before and after any release : to fix any issue that is spotted post release
+    - check INP and all on RUM vision tool
+
+
+Learn :
+    - read up on frontend system design 
+    - react render proper pattern : read from patterns.dev
+    - PWA ( progressive web app ) with service worker
+    - https://www.patterns.dev/posts/render-props-pattern
+    - read up on webpack in more depth 
+    - read up on gatsby in more depth
+    - do a POC on google-pub-sub event driven micro-services
+    - complex design pattern spring boot
+    - how our current project differentiates between mobile device and desktop device
+    - webpack and micro-frontend course : https://www.udemy.com/course/webpack-5-ninja-build-micro-frontend-and-web-apps/
+    - how auto-suggestion works in india : https://cars24.slack.com/archives/G5GD6T5PZ/p1684304316882299
+    
+
+Web Performance Optimization techniques : 
+    - For App Ticket : always make sure  of backward compatibility
+    - take care of FCP , LCP and CLS web vitals , as they are very important for google Ranking 
+    - coverage tab in chrome : https://developer.chrome.com/docs/devtools/coverage/
+    - squoosh.com for reducing image sizes
+    - preload and pre-connect images
+    - use this resource for historic web-vital data tracking for any url : https://auditzy.com/features/core-web-vital-checker/report
+    - webpack graph reading and optimizationx
+    - width , quality and dpr paramter for CDN images to download them in minified sizes 
+    - cost of import : dynamic import of high cost helper functions or components which are conditionally used , they can be made as dynamic import 
+    - try to read cookie data on SSR, and according to that , you can load the control or Variant component according to that 
+    - try to call dynamic data / api-call on SSR for better SEO results
+    - animations and popups should be avoided in first fold
+    - bundleAnalyser : uncomment BundleAnalyzerPlugin ( "webpack-bundle-analyzer" ) 2 lines and yarn build the project ( "BundleAnalyzerPlugin" )
+
+
+Noon Payment Gateway :
+    - Success Card : 4242 4242 4242 4242
+    - Failure Card : 4000000000002446
+
+-------- DAP Testing IDs ---------------------------------------------------------------------------------------------------
+
+homeda08@gmail.com
+passwrd:homeda123@08
+
+hubda08@gmail.com
+hubda123@08
+
+commonda08@gmail.com
+commonda123@08
+
+datl080808@gmail.com ( EVERYTHING WORKS IN THIS )
+datl123@08
+
+receptionist080808@gmail.com
+receptionist123@08
+
+yardprep08@gmail.com
+yardprep123@08
+
+
+-------- SAP Testing IDs ---------------------------------------------------------------------------------------------------
+
+servicemanage21@gmail.com
+Service@21
+
+qcsubscription@gmail.com
+Qc@12345
+
+
+-------- PERSONS TO CONTACT ---------
+
+DSM:
+    - 
+
+
+Retro Points :
+    - DSM to be run epic/story wise , instead of individual person wise
+    - calender invites for release calls are not getting scheduled properly , some of the team members do not get invite.
+    - Kudos to Sohail, Sukhpal and Harish , for being available to resolve all doubts related to subscription and quick resolution to ensure a smooth release
+
+
+UAE code base optimizations to pick:
+    - reducer Splitting : already in progress
+    - make all SSR api calls paralled if they are non-dependent : already in progress
+    - login token expires quickly : recheck the refresh token mechanism : to-do
+    - DOM elements are very big in size , especially for listing size : to-do
+    - MobileEvents and Desktop events chunking/splitting : to-do
+    - Back log Bugs [ pick section wise every sprint ] : to-do
+    - check this for Async loading of third party scripts : https://partytown.builder.io/how-does-partytown-work
+
+
+
+
+Prashant :
+        - Ask to extend Notice period by one week if you will get one week money
+
+
+
+
+    
+-------------- PAGE optimization rules ------------------
+
+PAGE optimization rules:
+    - the page should have no warnings or erros 
+    - the images and containers should have height width to improve cls
+    - components not visible in first fold should be in loadable with fallback div which has the component height as inline css
+    - the loadables should be wrapped inside reactLazyLoad component
+    - make all popups as loadable
+    - recheck page with different SEO tools [ pagespeed extension , core-web-vital extension and lighthouse extension ]
+    - check the sizes of the images getting loaded and all
+    - see the all the SEO links are working properly 
+
+-------------- Release optimization rules ------------------
+
+Release optimization rules:
+    - monitor for sentry error 
+    - monitor core-web vitals of important pages like home page , listing , cdp , etc
+    - review team PRs thoroughly
+    - stack PR method
+
+
+-------------- Runnning Website on Mobile ------------------
+
+
+
+NOTE : that your mobile device and laptop should be connected to same wifi
+
+1. Get you wifi IPv4 address from system-preferences -> network
+2. run this commond in your terminal -> export HOST=IPv4  ->  export HOST=172.16.5.248
+3. Run the website
+4. now on mobile , type IPv4:3000/page-url
+5. once mobile debugging is done, close the current terminal 
+6. now to again run websites on your desktops , just open new terminal and work as normal 
+
+
+-------------- Doubts for upcoming sprint tasks ------------------
+
+
+
+
+
+-------------- UAT POINTS ------------------
+
+
+-------------- Priority Bugs ------------------
+
+
+
+-------------- POC ------------------
+
+
+
+-------------- API contracts for current sprint ------------------
+
+
+
+----------------  Upcoming travels ----------------- 
+
+

@@ -7,7 +7,10 @@ React Topics to Study:
 
 
 
-
+KT Videos to take and understand :
+    - Subscription Admin Panel [ SAP ] [ Karthik ] 
+    - DA Admin panel [ DAP ] [ KT from Faheem ] : https://drive.google.com/file/d/1j7cRzMjkqvvj4XZun-PbR8ixH4z1Mdgy/view?usp=sharing
+    - Buyer Msite , you will explain by yourself
 
     --------------------- RELEASED OR MERGED FOR RELEASE TASK BRANCHES -------------------------------
 

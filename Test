@@ -1,12 +1,4 @@
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+git clone https://github.com/Homebrew/brew /opt/homebrew
 
-
-cd zsh-syntax-highlighting
-
-mkdir -p ~/.zsh/custom/plugins
-cp -r zsh-syntax-highlighting ~/.zsh/custom/plugins/
-
-nano ~/.zshrc
-
-source ~/.zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+echo 'export PATH="/opt/homebrew/bin:$PATH"' >> ~/.zshrc
 

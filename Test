@@ -1,6 +1,33 @@
-git clone https://github.com/nvm-sh/nvm.git ~/.nvm
+const handlePreview = (src: string, fileName: string = 'preview-file') => {
+  console.log('🔍 handlePreview ~ src:', src);
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  const isBase64 = src.startsWith('data:') && src.includes(';base64,');
 
+  if (isBase64) {
+    // Extract the MIME type and base64 content
+    const [meta, base64Data] = src.split(';base64,');
+    const mimeType = meta.replace('data:', '');
 
+    // Convert base64 to binary
+    const byteCharacters = atob(base64Data);
+    const byteNumbers = Array.from(byteCharacters, char => char.charCodeAt(0));
+    const byteArray = new Uint8Array(byteNumbers);
+
+    // Create a Blob and object URL
+    const blob = new Blob([byteArray], { type: mimeType });
+    const url = URL.createObjectURL(blob);
+
+    // Trigger download with filename
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = fileName;
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+  } else {
+    // If not base64, open the URL directly
+    window.open(src, '_blank');
+  }
+};
